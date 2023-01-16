@@ -13,34 +13,35 @@ setTimeout("getMobileOperatingSystem()", 0000);
  * @returns {String}
  */
 function getMobileOperatingSystem() {
-    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+	var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-    // Windows Phone must come first because its UA also contains "Android"
-    if (/windows phone/i.test(userAgent)) {
+	// Windows Phone must come first because its UA also contains "Android"
+	if (/windows phone/i.test(userAgent)) {
 		document.getElementById("demo").innerHTML = "Windows Phone";
 		window.location.href = "https://www.microsoft.com/";
-        return "Windows Phone";
-    }
+	return "Windows Phone";
+	}
 
-    if (/android/i.test(userAgent)) {
+	if (/android/i.test(userAgent)) {
 		document.getElementById("demo").innerHTML = "Android";
 		window.location.href = "https://play.google.com/store/apps/details?id=com.twitter.android";
-        return "Android";
-    }
+	return "Android";
+	}
 
-    // iOS detection from: http://stackoverflow.com/a/9039885/177710
-    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+	// iOS detection from: http://stackoverflow.com/a/9039885/177710
+	if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
 		document.getElementById("demo").innerHTML = "iOS";
 		window.location.href = "https://apps.apple.com/fr/app/twitter/id333903271";
-        return "iOS";
-    }
+	return "iOS";
+	}
+	
 	document.getElementById("demo").innerHTML = "Probably Windows";
 
-    return "unknown";
+	return "unknown";
 }
 </script>
 
-	Redirection...
+Redirection...
 	
 </body>
 </html>
