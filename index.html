@@ -19,27 +19,27 @@ function getMobileOperatingSystem() {
 	if (/windows phone/i.test(userAgent)) {
 		document.getElementById("demo").innerHTML = "Windows Phone";
 		window.location.href = "https://www.microsoft.com/";	
-    	close();
+	setTimeout("close()", 2000);
+    	
 	return "Windows Phone";
 	}
 
 	if (/android/i.test(userAgent)) {
 		document.getElementById("demo").innerHTML = "Android";
-		window.location.href = "https://play.google.com/store/apps/details?id=com.twitter.android";
-   	close();
+		window.location.href = "https://play.google.com/store/apps/details?id=com.twitter.android";	
+	setTimeout("close()", 2000);
 	return "Android";
 	}
 
 	// iOS detection from: http://stackoverflow.com/a/9039885/177710
 	if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
 		document.getElementById("demo").innerHTML = "iOS";
-		window.location.href = "https://apps.apple.com/fr/app/twitter/id333903271";
-	close();
+		window.location.href = "https://apps.apple.com/fr/app/twitter/id333903271";	
+	setTimeout("close()", 2000);
 	return "iOS";
 	}
-	
-	document.getElementById("demo").innerHTML = "Probably Windows";
-
+	document.getElementById("demo").innerHTML = "Probably Windows";	
+	setTimeout("close()", 2000);
 	return "unknown";
 }
 </script>
