@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<p id="demo"></p>
+
+<script>
+setTimeout("getMobileOperatingSystem()", 2000);
+/**
+ * Determine the mobile operating system.
+ * This function returns one of 'iOS', 'Android', 'Windows Phone', or 'unknown'.
+ *
+ * @returns {String}
+ */
+function getMobileOperatingSystem() {
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    // Windows Phone must come first because its UA also contains "Android"
+    if (/windows phone/i.test(userAgent)) {
+		document.getElementById("demo").innerHTML = "Windows Phone";
+		window.location.href = "https://www.microsoft.com/";
+        return "Windows Phone";
+    }
+
+    if (/android/i.test(userAgent)) {
+		document.getElementById("demo").innerHTML = "Android";
+		window.location.href = "https://play.google.com/store/apps/details?id=com.twitter.android&hl=en&gl=US&pli=1";
+        return "Android";
+    }
+
+    // iOS detection from: http://stackoverflow.com/a/9039885/177710
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+		document.getElementById("demo").innerHTML = "iOS";
+		window.location.href = "https://apps.apple.com/fr/app/twitter/id333903271";
+        return "iOS";
+    }
+	document.getElementById("demo").innerHTML = "Probably Windows";
+
+    return "unknown";
+}
+</script>
+
+</body>
+</html>
